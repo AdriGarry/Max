@@ -19,17 +19,23 @@ void playMelody(int melodyNotes[], int n, int melodyTempo[], int modeSpeaker){
     else if(speaker == 2){
       speaker = buzzMaxon;
       digitalWrite(ledMaxon, HIGH);
+      delay(20);
     }
-    else if(speaker == 3) speaker = horn;
-    int rdmTempo = random(0,4);
-    rdmTempo = (rdmTempo*0.01)+1;
-    tone(speaker, melodyNotes[i], melodyTempo[i]);
-    int pauseBetweenNotes = melodyTempo[i] * rdmTempo;
-    //int pauseBetweenNotes = melodyTempo[i] * 1.3;
+    else if(speaker == 3){
+      speaker = horn;
+      digitalWrite(ledInt, HIGH);
+      delay(20);
+    } 
+    int rdmTempo = random(0,5);
+    rdmTempo = (rdmTempo*0.05)+1;
+    tone(speaker, melodyNotes[i], melodyTempo[i] * rdmTempo);
+    //int pauseBetweenNotes = melodyTempo[i];
+    int pauseBetweenNotes = melodyTempo[i] * 1.3;
     int p2 = pauseBetweenNotes / 2;
     delay(p2);
-    if(speaker == buzzMaxon) digitalWrite(ledMaxon,LOW);
-    else digitalWrite(led,LOW);
+    if(speaker == buzzer) digitalWrite(led,LOW);
+    else if(speaker == buzzMaxon) digitalWrite(ledMaxon,LOW);
+    else if(speaker == horn) digitalWrite(ledInt,LOW);
     delay(p2);
   }
 }

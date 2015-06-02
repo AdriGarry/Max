@@ -10,6 +10,7 @@
 #include "motor.h"
 
 long nbLoop = 0;
+long nbLoop2 = 0;
 long temps;
 long tempsRdmLed;
 long tempsRdmBuzz;
@@ -25,7 +26,7 @@ const int btnPot = A0;
 const int btnPin = 2;
 int btnEtat;
 int btnEtat2;
-volatile int quickMode = true;
+volatile int quickMode = false;
 
 void pushButton(){
     quickMode = ! quickMode;
@@ -43,6 +44,7 @@ void setup() {
   
   // Led
   pinMode(led, OUTPUT);
+  pinMode(ledInt, OUTPUT);
   pinMode(ledMaxon, OUTPUT);
 
   // Buzz
@@ -53,6 +55,8 @@ void setup() {
   pinMode(motor, OUTPUT);
 
   //delay(10*1000); // Retard lancement
+  
+  //blinkLedInt(4, 25);
 
   int notes[] = {NOTE_D3};
   int tempo[] = {100};
@@ -86,7 +90,8 @@ void setup() {
 void loop() {
    
   nbLoop++;
-  Serial.println(nbLoop);
+  nbLoop2++;
+  Serial.println(nbLoop2);
 
   /*do{
     btnEtat = digitalRead(btnPin);
@@ -96,24 +101,18 @@ void loop() {
   if(btnEtat == HIGH) quickMode = true;
   else quickMode = false;*/
   
-  if((nbLoop % 20000) == 0){
+  if((nbLoop % 25000) == 0){
       delay(1000);
-      for(int i = 0; i < 4; i++){
-        digitalWrite(led,HIGH);
-        digitalWrite(ledMaxon,HIGH);
-        delay(800);
-        digitalWrite(led,LOW);
-        digitalWrite(ledMaxon,LOW);
-        delay(400);
-      }
+      blinkLedInt(4, 25);
       delay(1000);
       nbLoop = 0;
   }
   
-  if((nbLoop % 50000) == 0){
+  if((nbLoop2 % 50000) == 0){
       delay(1000);
       blinkLedInt(1, 100);
       delay(1000);
+      nbLoop2 = 0;
   }
   
   if((millis() - tempsRdmLed) > rdmTpsLed){

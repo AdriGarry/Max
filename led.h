@@ -12,10 +12,11 @@ void blinkLed(int ledTo, int repeat, int tempo){
     else blinkLed = A2;
     digitalWrite(blinkLed,HIGH);
     delay(tempo*15);
-    digitalWrite(ledInt,HIGH);
     digitalWrite(blinkLed,LOW);
-    delay(tempo*25);
+    digitalWrite(ledInt,HIGH);
+    delay(tempo*20);
     digitalWrite(ledInt,LOW);
+    delay(tempo*5);
   }
 }
 
@@ -23,7 +24,7 @@ void blinkLedInt(int repeat, int tempo){
   for(repeat; repeat > 0; repeat--){
     digitalWrite(ledInt,HIGH);
     delay(tempo*30);
-    digitalWrite(ledInt,HIGH);
+    digitalWrite(ledInt,LOW);
     delay(tempo*30);
   }  
 }
