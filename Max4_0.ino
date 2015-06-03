@@ -101,7 +101,7 @@ void loop() {
   if(btnEtat == HIGH) quickMode = true;
   else quickMode = false;*/
   
-  if((nbLoop % 25000) == 0){
+  if((nbLoop % 32000) == 0){
       delay(1000);
       blinkLedInt(4, 25);
       delay(1000);
