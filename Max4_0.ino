@@ -1,7 +1,7 @@
 /*
 --> MAX 4.0 : Max + Horn + Maxon
 --> AdriGarry 
---> 01/06/2015
+--> 03/06/2015
 */
 #include "Arduino.h"
 #include "notes.h"
@@ -18,7 +18,7 @@ long tempsRdmHorn;
 long tempsRdmMotor;
 long rdmTpsLed = (13*1000);
 long rdmTpsBuzz = (20*1000);
-long rdmTpsHorn = (120*1000);
+long rdmTpsHorn = (90*1000);
 long rdmTpsMotor = (10*1000);
 
 // Button
@@ -88,7 +88,6 @@ void setup() {
 }
 
 void loop() {
-   
   nbLoop++;
   nbLoop2++;
   Serial.println(nbLoop2);
@@ -105,33 +104,33 @@ void loop() {
       delay(1000);
       blinkLedInt(4, 25);
       delay(1000);
-      nbLoop = 0;
+      //nbLoop = 0;
   }
   
   if((nbLoop2 % 50000) == 0){
       delay(1000);
       blinkLedInt(1, 100);
       delay(1000);
-      nbLoop2 = 0;
+      //nbLoop2 = 0;
   }
   
   if((millis() - tempsRdmLed) > rdmTpsLed){
-      if(quickMode) rdmTpsLed = (random(1,10))*1*1000;
+      if(quickMode) rdmTpsLed = random(1,10)*1*1000;
       else rdmTpsLed = (random(1,7))*10*1000;
       tempsRdmLed = millis();
       blinkLed(random(1,5), random(1,5), random(2,20));
   }
 
   if((millis() - tempsRdmMotor) > rdmTpsMotor){
-      if(quickMode) rdmTpsMotor = (random(1,3))*1000;
+      if(quickMode) rdmTpsMotor = random(1,3)*1000;
       else rdmTpsMotor = (random(1,6))*10*1000;
       tempsRdmMotor = millis();
       turn(random(1,3), random(1,20));
   }
   
   if((millis() - tempsRdmHorn) > rdmTpsHorn){
-      if(quickMode) rdmTpsHorn = (random(2,5)*8*1000);
-      else rdmTpsHorn = (random(2,20)*60*1000);
+      if(quickMode) rdmTpsHorn = random(2,5)*8*1000;
+      else rdmTpsHorn = random(2,20)*60*1000;
       tempsRdmHorn = millis();
       
       int rdmHorn = random(1,6);
@@ -154,8 +153,8 @@ void loop() {
   }
 
   if((millis() - tempsRdmBuzz) > rdmTpsBuzz){
-      if(quickMode) rdmTpsBuzz = (random(2,4)*1*1000);
-      else rdmTpsBuzz = (random(2,20)*60*1000);
+      if(quickMode) rdmTpsBuzz = random(2,4)*1*1000;
+      else rdmTpsBuzz = random(2,20)*60*1000;
       tempsRdmBuzz = millis();
       
       //int rdm = 13;

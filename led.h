@@ -7,15 +7,16 @@ const int ledMaxon = A2;
 void blinkLed(int ledTo, int repeat, int tempo){
   int blinkLed = ledTo;
   for(repeat; repeat > 0; repeat--){
-    if(ledTo > 2) blinkLed = random(1,3);
-    if(blinkLed == 1) blinkLed = 13;
-    else blinkLed = A2;
+    if(ledTo > 3) blinkLed = random(1,4);
+    if(blinkLed == 1) blinkLed = led;
+    else if(blinkLed == 2) blinkLed = ledInt;
+    else if(blinkLed == 3) blinkLed = ledMaxon;
     digitalWrite(blinkLed,HIGH);
     delay(tempo*15);
     digitalWrite(blinkLed,LOW);
-    digitalWrite(ledInt,HIGH);
+    //digitalWrite(ledInt,HIGH);
     delay(tempo*20);
-    digitalWrite(ledInt,LOW);
+    //digitalWrite(ledInt,LOW);
     delay(tempo*5);
   }
 }

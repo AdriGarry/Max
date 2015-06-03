@@ -25,7 +25,7 @@ void playMelody(int melodyNotes[], int n, int melodyTempo[], int modeSpeaker){
       speaker = horn;
       digitalWrite(ledInt, HIGH);
       delay(20);
-    } 
+    }
     int rdmTempo = random(0,5);
     rdmTempo = (rdmTempo*0.05)+1;
     tone(speaker, melodyNotes[i], melodyTempo[i] * rdmTempo);
@@ -55,6 +55,7 @@ void toneAll(int melodyNotes[], int n, int melodyTempo[]){
 }
 
 void playHornWarning(){
+  digitalWrite(ledInt, HIGH);
   int freqTempo = 30;
   for(int i = freqTempo; i < 160; i++){
     if(i > 30 && i < 50) {
@@ -82,9 +83,10 @@ void playHornWarning(){
     }
   }
   noTone(horn);
+  digitalWrite(ledInt, LOW);
 }
 void playHorn(){
-  digitalWrite(led, HIGH);
+  digitalWrite(ledInt, HIGH);
   int freqTempo = 600;
   for(int i = freqTempo; i < 2000; i++){
     if(i > 600 && i < 1000) {
@@ -103,10 +105,11 @@ void playHorn(){
   tone(horn, freqTempo, 1000);
   delay(800);
   noTone(horn);
-  digitalWrite(led, LOW);
+  digitalWrite(ledInt, LOW);
 }
 
 void playHornOff(){
+  digitalWrite(ledInt, HIGH);
   int freqTempo = 500;
   for(int i = 0; i < 3; i++){
       tone(horn, freqTempo, 1000);
@@ -119,10 +122,11 @@ void playHornOff(){
     delay(i*0.004);
   }
   noTone(horn);
+  digitalWrite(ledInt, LOW);
 }
 
 void playHornDoUp(){
-  digitalWrite(led, HIGH);
+  digitalWrite(ledInt, HIGH);
   int freqTempo = 300;
   for(int i = freqTempo; i < 1000; i++){
     if(i > 300 && i < 500) {
@@ -137,6 +141,6 @@ void playHornDoUp(){
     }
   }
   noTone(horn);
-  digitalWrite(led, LOW);
+  digitalWrite(ledInt, LOW);
 }
 
