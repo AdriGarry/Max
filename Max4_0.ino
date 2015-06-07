@@ -8,6 +8,7 @@
 #include "led.h"
 #include "buzzer.h"
 #include "motor.h"
+#include "potentiometre.h"
 
 long nbLoop = 0;
 long temps;
@@ -16,25 +17,16 @@ long tempsRdmBuzz;
 long tempsRdmHorn;
 long tempsRdmMelodyRdm;
 long tempsRdmMotor;
-/*long rdmTpsLed = (13*1000);
+long rdmTpsLed = (13*1000);
 long rdmTpsBuzz = (60*1000);
 long rdmTpsMelodyRdm = (25*1000);
 long rdmTpsHorn = (90*1000);
-long rdmTpsMotor = (10*1000);*/
-long rdmTpsLed = (3*1000);
+long rdmTpsMotor = (10*1000);
+/*long rdmTpsLed = (3*1000);
 long rdmTpsBuzz = (15*1000);
 long rdmTpsMelodyRdm = (25*1000);
 long rdmTpsHorn = (30*1000);
-long rdmTpsMotor = (10*1000);
-
-// Button
-const int pinPot = A3;
-float rythm = 5.0;
-volatile int quickMode = true;
-
-void pushButton(){
-    quickMode = ! quickMode;
-}
+long rdmTpsMotor = (10*1000);*/
 
 void setup() {
   Serial.begin(9600);
@@ -43,7 +35,7 @@ void setup() {
   tempsRdmBuzz = millis();
   tempsRdmMelodyRdm = millis();
   tempsRdmHorn = millis();
-
+  
   // Button
   pinMode(pinPot, INPUT);
   
@@ -102,21 +94,7 @@ void loop() {
   nbLoop++;
   //Serial.println(nbLoop);
   
-  int sensorValue = analogRead(pinPot);
-  float volt = sensorValue * (5.0 / 1023.0);
-  //Serial.println(volt);
-  rythm = volt;
-  if(rythm < 1) rythm = 1;
-  else if (rythm == 5) rythm = 10;
-  Serial.println(rythm);
-  
-  /*do{
-    btnEtat = digitalRead(btnPin);
-    delay(10);
-    btnEtat2 = digitalRead(btnPin);
-  } while (btnEtat != btnEtat2);
-  if(btnEtat == HIGH) quickMode = true;
-  else quickMode = false;*/
+  rythm = getPotValue();
   
   if((nbLoop % 50000) == 0){
       delay(1000);
@@ -126,24 +104,20 @@ void loop() {
   }
   
   if((millis() - tempsRdmLed) > rdmTpsLed){
-      if(quickMode) rdmTpsLed = (random(1,10)*1*1000)*rythm;
-      else rdmTpsLed = (random(1,7))*10*1000;
+      rdmTpsLed = (random(1,7))*30*1000/rythm;
       tempsRdmLed = millis();
       blinkLed(random(1,5), random(1,5), random(2,20));
   }
 
   if((millis() - tempsRdmMotor) > rdmTpsMotor){
-      if(quickMode) rdmTpsMotor = (random(1,3)*1000)*rythm;
-      else rdmTpsMotor = ((random(1,6))*10*1000);
+      rdmTpsMotor = ((random(1,6))*30*1000)/rythm;
       tempsRdmMotor = millis();
       turn(random(1,3), random(1,20));
   }
   
   if((millis() - tempsRdmHorn) > rdmTpsHorn){
-      if(quickMode) rdmTpsHorn = (random(2,5)*8*1000)*rythm;
-      else rdmTpsHorn = (random(2,20)*60*1000);
+      rdmTpsHorn = (random(2,20)*60*1000)/rythm;
       tempsRdmHorn = millis();
-      
       int rdmHorn = random(1,6);
       switch(rdmHorn){
         case 1 :
@@ -164,16 +138,13 @@ void loop() {
   }
 
   if((millis() - tempsRdmMelodyRdm) > rdmTpsMelodyRdm){ // RENOMMER 'FULLRANDOM'
-      if(quickMode) rdmTpsMelodyRdm = (random(2,5)*2*1000)*rythm;
-      //else rdmTpsMelodyRdm = random(2,20)*50*1000;
-      else rdmTpsMelodyRdm = (random(1,13)*15*1000);
+      rdmTpsMelodyRdm = (random(1,10)*20*1000)/rythm;
       tempsRdmMelodyRdm = millis();
       playRandomMelody(4);
   }
 
   if((millis() - tempsRdmBuzz) > rdmTpsBuzz){
-      if(quickMode) rdmTpsBuzz = (random(2,4)*1*1000)*rythm;
-      else rdmTpsBuzz = random(2,20)*60*1000;
+      rdmTpsBuzz = random(2,15)*50*1000/rythm;
       tempsRdmBuzz = millis();
       
       //int rdm = 13;
