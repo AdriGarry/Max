@@ -18,9 +18,9 @@ long tempsRdmHorn;
 long tempsRdmMelodyRdm;
 long tempsRdmMotor;
 long rdmTpsLed = (13*1000);
-long rdmTpsBuzz = (60*1000);
+long rdmTpsBuzz = (45*1000);
 long rdmTpsMelodyRdm = (25*1000);
-long rdmTpsHorn = (90*1000);
+long rdmTpsHorn = (60*1000);
 long rdmTpsMotor = (10*1000);
 /*long rdmTpsLed = (3*1000);
 long rdmTpsBuzz = (15*1000);
@@ -88,6 +88,7 @@ void setup() {
     //playHorn();
     delay(3000);
   }*/
+  
 }
 
 void loop() {
@@ -116,15 +117,15 @@ void loop() {
   }
   
   if((millis() - tempsRdmHorn) > rdmTpsHorn){
-      rdmTpsHorn = (random(2,20)*60*1000)/rythm;
+      rdmTpsHorn = (random(2,20)*45*1000)/rythm;
       tempsRdmHorn = millis();
-      int rdmHorn = random(1,6);
+      int rdmHorn = random(1,12);
       switch(rdmHorn){
         case 1 :
           playHornWarning();
           break;
         case 2 :
-          playHornDoUp();
+          playHornDoUp(random(1,8));
           break;
         case 3 :
           playHorn();
@@ -132,8 +133,20 @@ void loop() {
         case 4 :
           playHornOff();
           break;
+        case 5 :
+          playHornFire(random(1,5));
+          break;
+        case 6 :
+          playHornWhistle();
+          break;
+        case 7 :
+          playHornOvni();
+          break;
+        case 8 :
+          playHornBombing(random(1,5));
+          break;
         default :
-          playHornDoUp();
+          playHornDown();
       }
   }
 

@@ -108,6 +108,115 @@ void playHorn(){
   digitalWrite(ledInt, LOW);
 }
 
+void playHornBombing(int repeat){
+  digitalWrite(ledInt, HIGH);
+  int freqTempo = 5000;
+  for(int i = freqTempo; i > 3500; i--){
+    tone(horn, i, 500);
+    delay(i*0.0004);
+  }
+  for(repeat; repeat > 0; repeat--){
+    freqTempo = 700;
+    for(int i = freqTempo; i > 30; i--){
+      tone(horn, i, 500);
+      delay(i*0.001);
+    }
+  }
+    digitalWrite(ledInt, LOW);
+    noTone(horn);
+    delay(500);
+}
+
+void playHornOvni(){
+  digitalWrite(ledInt, HIGH);
+  int freqTempo = 1300;
+  for(int i = freqTempo; i < 2500; i++){
+    tone(horn, i, 500);
+    delay(i*0.0008);
+    freqTempo = i;
+  }
+  digitalWrite(ledInt, LOW);
+  for(int i = freqTempo; i > 1200; i--){
+    tone(horn, i, 500);
+    delay(i*0.0004);
+  }
+  freqTempo = 500;
+  for(int i = freqTempo; i < 1300; i++){
+    tone(horn, i, 500);
+    delay(i*0.0001);
+  }
+  noTone(horn);
+  delay(500);
+}
+
+void playHornWhistle(){
+  digitalWrite(ledInt, HIGH);
+  int freqTempo = 2200;
+  for(int i = freqTempo; i < 2800; i++){
+    tone(horn, i, 500);
+    delay(i*0.0002);
+    freqTempo = i;
+  }
+  digitalWrite(ledInt, LOW);
+  for(int i = freqTempo; i > 1200; i--){
+    tone(horn, i, 500);
+    delay(i*0.0004);
+  }
+  noTone(horn);
+  delay(500);
+}
+
+void playHornSiren(int repeat){
+  for(repeat; repeat > 0; repeat--){
+    digitalWrite(ledInt, HIGH);
+    int freqTempo = 2000;
+    for(int i = freqTempo; i < 2500; i++){
+      tone(horn, i, 500);
+      delay(i*0.0002);
+      freqTempo = i;
+    }
+    digitalWrite(ledInt, LOW);
+    for(int i = freqTempo; i > 1500; i--){
+      tone(horn, i, 500);
+      delay(i*0.0004);
+    }
+    noTone(horn);
+  }
+}
+
+void playHornFire(int repeat){
+  for(repeat; repeat > 0; repeat--){
+    digitalWrite(ledInt, HIGH);
+    int freqTempo = 800;
+    for(int i = freqTempo; i < 1000; i++){
+      tone(horn, i, 500);
+      delay(i*0.0007);
+      freqTempo = i;
+    }
+    digitalWrite(ledInt, LOW);
+    for(int i = freqTempo; i > 400; i--){
+      tone(horn, i, 500);
+      delay(i*0.0007);
+    }
+    noTone(horn);
+  }
+}
+
+void playHornDown(){
+  digitalWrite(ledInt, HIGH);
+  int freqTempo = 30;
+  for(int i = freqTempo; i > 20; i--){
+    tone(horn, i, 500);
+    delay(100);
+  }
+  noTone(horn);
+  delay(1000);
+  tone(horn, 33, 500);
+  delay(300);
+  noTone(horn);
+  digitalWrite(ledInt, LOW);
+}
+
 void playHornOff(){
   digitalWrite(ledInt, HIGH);
   int freqTempo = 500;
@@ -125,23 +234,25 @@ void playHornOff(){
   digitalWrite(ledInt, LOW);
 }
 
-void playHornDoUp(){
-  digitalWrite(ledInt, HIGH);
-  int freqTempo = 300;
-  for(int i = freqTempo; i < 1000; i++){
-    if(i > 300 && i < 500) {
-      tone(horn, i, 1000);
-      delay(i*0.0001);
-      freqTempo = i;
+void playHornDoUp(int repeat){
+  for(repeat; repeat > 0; repeat--){
+    digitalWrite(ledInt, HIGH);
+    int freqTempo = 300;
+    for(int i = freqTempo; i < 1000; i++){
+      if(i > 300 && i < 500) {
+        tone(horn, i, 1000);
+        delay(i*0.0001);
+        freqTempo = i;
+      }
+      else if(i > 500) {
+        tone(horn, i, 500);
+        delay(i*0.001);
+        freqTempo = i;
+      }
     }
-    else if(i > 500) {
-      tone(horn, i, 500);
-      delay(i*0.001);
-      freqTempo = i;
-    }
+    noTone(horn);
+    digitalWrite(ledInt, LOW);
   }
-  noTone(horn);
-  digitalWrite(ledInt, LOW);
 }
 
 
