@@ -165,7 +165,7 @@ void loop() {
       tempsRdmBuzz = millis();
       
       int rdm = random(30);
-      int speaker = random(1,7);
+      int speaker = random(1,3);
       // RANDOM DURATION *1.1 .. 1.4
       if(rdm == 0){
           int notes[] = {NOTE_C4, NOTE_G3,NOTE_G3, NOTE_A3, NOTE_G3,0, NOTE_B3, NOTE_C4};
