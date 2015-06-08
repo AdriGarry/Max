@@ -38,57 +38,28 @@ void setup() {
   
   // Button
   pinMode(pinPot, INPUT);
-  
   // Led
   pinMode(led, OUTPUT);
   pinMode(ledInt, OUTPUT);
   pinMode(ledMaxon, OUTPUT);
-
   // Buzz
   pinMode(buzzer, OUTPUT);
   pinMode(buzzMaxon, OUTPUT);
-
   // Motor
   pinMode(motor, OUTPUT);
 
   //delay(10*1000); // Retard lancement
   
-  //blinkLedInt(4, 25);
-
   int notes[] = {NOTE_D3};
   int tempo[] = {100};
-  //int notes[] = {566, 357, 395, 639, 780, 439, 395, 395, 395, 780};
-  //int tempo[] = {150, 150, 150, 150, 150, 150, 150, 150, 150, 800};
-
   int duration = sizeof(notes)/sizeof(int);
   playMelody(notes, duration, tempo, 1);
+  delay(500);
 
-  /*blinkAllLed(1, 20);
-  playMelody(notes, duration*1.3, tempo, 1);
-  blinkAllLed(1, 2);
-  playMelody(notes, duration*1.1, tempo, 2);
-  blinkAllLed(1, 2);
-  int notes2[] = {NOTE_B3};
-  playMelody(notes2, duration*1.3, tempo, 3);
-  blinkAllLed(1, 2);*/
-
-  delay(2000);
-  //tempo[] = {500};
-  //toneAll(notes, duration*1.5, tempo);
-
-  //turnTest();
-  turn(1, 4);
-  
-  //btnEtat = LOW; // Initialisation de l'état du bouton comme "relaché"
-  digitalWrite(led,LOW);
-  //attachInterrupt(0, pushButton, RISING); // ou LOW
-  
-  /*for(int i = 0; i < 1000; i++){
-    playRandomMelody(4);
-    //playHorn();
-    delay(3000);
-  }*/
-  
+  for(int i = 0; i < 3; i++){
+    playHorn2(i);
+    delay(1500);
+  }
 }
 
 void loop() {
@@ -101,7 +72,7 @@ void loop() {
       delay(1000);
       blinkLedInt(4, 25);
       delay(1000);
-      //nbLoop = 0;
+      nbLoop = 0;
   }
   
   if((millis() - tempsRdmLed) > rdmTpsLed){
@@ -160,7 +131,6 @@ void loop() {
       rdmTpsBuzz = random(2,15)*50*1000/rythm;
       tempsRdmBuzz = millis();
       
-      //int rdm = 13;
       int rdm = random(30);
       int speaker = random(1,7);
       // RANDOM DURATION *1.1 .. 1.4
