@@ -29,7 +29,6 @@ void playMelody(int melodyNotes[], int n, int melodyTempo[], int modeSpeaker){
     int rdmTempo = random(0,5);
     rdmTempo = (rdmTempo*0.05)+1;
     tone(speaker, melodyNotes[i], melodyTempo[i] * rdmTempo);
-    //int pauseBetweenNotes = melodyTempo[i];
     int pauseBetweenNotes = melodyTempo[i] * 1.3;
     int p2 = pauseBetweenNotes / 2;
     delay(p2);
@@ -103,9 +102,31 @@ void playHorn(){
   noTone(horn);
   delay(1200);
   tone(horn, freqTempo, 1000);
-  delay(800);
+  delay(500);
   noTone(horn);
   digitalWrite(ledInt, LOW);
+  delay(200);
+}
+
+void playHorn2(int repeat){
+  for(repeat; repeat > 0; repeat--){
+    digitalWrite(ledInt, HIGH);
+    int freqTempo = 50;
+    int freqTempo2 = 3000;
+    for(freqTempo; freqTempo < 100; freqTempo++){
+      tone(horn, freqTempo, 500);
+      delay(freqTempo*0.0002);
+	  //delay(freqTempo*0.002); // A TESTER
+    }
+    digitalWrite(ledInt, LOW);
+    for(freqTempo2; freqTempo2 > 2950; freqTempo2--){
+      tone(horn, freqTempo2, 500);
+      delay(freqTempo2*0.0003);
+	  //delay(freqTempo2*0.003); // A TESTER
+    }
+  }
+  noTone(horn);
+  delay(200);
 }
 
 void playHornBombing(int repeat){
@@ -124,7 +145,7 @@ void playHornBombing(int repeat){
   }
     digitalWrite(ledInt, LOW);
     noTone(horn);
-    delay(500);
+    delay(200);
 }
 
 void playHornOvni(){
@@ -146,7 +167,7 @@ void playHornOvni(){
     delay(i*0.0001);
   }
   noTone(horn);
-  delay(500);
+  delay(200);
 }
 
 void playHornWhistle(){
@@ -163,7 +184,7 @@ void playHornWhistle(){
     delay(i*0.0004);
   }
   noTone(horn);
-  delay(500);
+  delay(200);
 }
 
 void playHornSiren(int repeat){
@@ -182,7 +203,7 @@ void playHornSiren(int repeat){
     }
     noTone(horn);
   }
-  delay(500);
+  delay(200);
 }
 
 void playHornFire(int repeat){
@@ -217,7 +238,7 @@ void playHornDown(){
   delay(300);
   noTone(horn);
   digitalWrite(ledInt, LOW);
-  delay(500);
+  delay(200);
 }
 
 void playHornOff(){
