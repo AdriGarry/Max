@@ -108,25 +108,23 @@ void playHorn(){
   delay(200);
 }
 
-void playHorn2(int repeat){
+void playHorn2(int repeat){ //Sputnik
   for(repeat; repeat > 0; repeat--){
     digitalWrite(ledInt, HIGH);
     int freqTempo = 50;
     int freqTempo2 = 3000;
     for(freqTempo; freqTempo < 100; freqTempo++){
       tone(horn, freqTempo, 500);
-      delay(freqTempo*0.0002);
-	  //delay(freqTempo*0.002); // A TESTER
+      delay(freqTempo*0.002);
     }
     digitalWrite(ledInt, LOW);
     for(freqTempo2; freqTempo2 > 2950; freqTempo2--){
       tone(horn, freqTempo2, 500);
-      delay(freqTempo2*0.0003);
-	  //delay(freqTempo2*0.003); // A TESTER
+      delay(freqTempo2*0.003);
     }
+    delay(500);
   }
   noTone(horn);
-  delay(200);
 }
 
 void playHornBombing(int repeat){

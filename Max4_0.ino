@@ -56,10 +56,40 @@ void setup() {
   playMelody(notes, duration, tempo, 1);
   delay(500);
 
-  for(int i = 0; i < 3; i++){
-    playHorn2(i);
+  for(int i = 1; i < 4; i++){
+    playHorn2(random(3,6));
     delay(1500);
   }
+   
+    /*playHornBombing(1);
+    delay(1000);
+    playHornBombing(3);
+    delay(1000);
+
+    playHornOvni();
+    delay(1000);
+    playHornOvni();
+    delay(1000);
+
+    playHornDown();
+    delay(1000);
+    playHornDown();
+    delay(1000);
+
+    playHornWhistle();
+    delay(1000);
+    playHornWhistle();
+    delay(1000);
+
+    playHornSiren(3);
+    delay(1000);
+    playHornSiren(5);
+    delay(1000);
+
+    playHornFire(2);
+    delay(1000);
+    playHornFire(4);*/
+
 }
 
 void loop() {
@@ -90,7 +120,7 @@ void loop() {
   if((millis() - tempsRdmHorn) > rdmTpsHorn){
       rdmTpsHorn = (random(2,15)*45*1000)/rythm;
       tempsRdmHorn = millis();
-      int rdmHorn = random(1,12);
+      int rdmHorn = random(1,13);
       switch(rdmHorn){
         case 1 :
           playHornWarning();
@@ -115,6 +145,9 @@ void loop() {
           break;
         case 8 :
           playHornBombing(random(1,5));
+          break;
+        case 9 :
+          playHornSiren(random(3,7));
           break;
         default :
           playHornDown();
