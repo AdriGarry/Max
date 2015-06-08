@@ -182,6 +182,7 @@ void playHornSiren(int repeat){
     }
     noTone(horn);
   }
+  delay(500);
 }
 
 void playHornFire(int repeat){
@@ -200,6 +201,7 @@ void playHornFire(int repeat){
     }
     noTone(horn);
   }
+  delay(500);
 }
 
 void playHornDown(){
@@ -215,6 +217,7 @@ void playHornDown(){
   delay(300);
   noTone(horn);
   digitalWrite(ledInt, LOW);
+  delay(500);
 }
 
 void playHornOff(){
