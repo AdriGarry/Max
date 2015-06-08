@@ -117,7 +117,7 @@ void loop() {
   }
   
   if((millis() - tempsRdmHorn) > rdmTpsHorn){
-      rdmTpsHorn = (random(2,20)*45*1000)/rythm;
+      rdmTpsHorn = (random(2,15)*45*1000)/rythm;
       tempsRdmHorn = millis();
       int rdmHorn = random(1,12);
       switch(rdmHorn){
@@ -151,7 +151,7 @@ void loop() {
   }
 
   if((millis() - tempsRdmMelodyRdm) > rdmTpsMelodyRdm){ // RENOMMER 'FULLRANDOM'
-      rdmTpsMelodyRdm = (random(1,10)*20*1000)/rythm;
+      rdmTpsMelodyRdm = (random(1,10)*25*1000)/rythm;
       tempsRdmMelodyRdm = millis();
       playRandomMelody(4);
   }
