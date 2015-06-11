@@ -11,7 +11,7 @@ void playMelody(int melodyNotes[], int n, int melodyTempo[], int modeSpeaker){
   int speaker = modeSpeaker;
   //int rdmTempo = 1.5;
   for(int i = 0; i < n; i++){
-    if(modeSpeaker > 3) speaker = random(1,4);
+    if(modeSpeaker > 3) speaker = random(1,3);
     if(speaker == 1){
       speaker = buzzer;
       digitalWrite(led, HIGH);
