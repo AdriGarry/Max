@@ -22,11 +22,6 @@ long rdmTpsBuzz = (35*1000);
 long rdmTpsMelodyRdm = (25*1000);
 long rdmTpsHorn = (30*1000);
 long rdmTpsMotor = (20*1000);
-/*long rdmTpsLed = (3*1000);
-long rdmTpsBuzz = (15*1000);
-long rdmTpsMelodyRdm = (25*1000);
-long rdmTpsHorn = (30*1000);
-long rdmTpsMotor = (10*1000);*/
 
 void setup() {
   Serial.begin(9600);
@@ -58,11 +53,11 @@ void setup() {
 
 playHornDoUp(random(1,8));
 
-//  for(int i = 1; i < 2; i++){
-//    //playHorn2(random(3,6));
-//    playHorn2(3);
-//    delay(2000);
-//  }
+  for(int i = 1; i < 2; i++){
+    //playHorn2(random(3,6));
+    playHorn2(3);
+    delay(2000);
+  }
 }
 
 void loop() {
