@@ -91,7 +91,7 @@ void loop() {
       Serial.println("playHorn !!!!!!!!!!!!!!!!!");
       rdmTpsHorn = random(1,13)*40*1000/rythm;
       tempsRdmHorn = millis();
-      int rdmHorn = random(1,13);
+      int rdmHorn = random(1,11);
       switch(rdmHorn){
         case 1 :
           playHornWarning();
