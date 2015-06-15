@@ -18,10 +18,10 @@ long tempsRdmHorn;
 long tempsRdmMelodyRdm;
 long tempsRdmMotor;
 long rdmTpsLed = (13*1000);
-long rdmTpsBuzz = (45*1000);
+long rdmTpsBuzz = (35*1000);
 long rdmTpsMelodyRdm = (25*1000);
-long rdmTpsHorn = (60*1000);
-long rdmTpsMotor = (10*1000);
+long rdmTpsHorn = (30*1000);
+long rdmTpsMotor = (20*1000);
 /*long rdmTpsLed = (3*1000);
 long rdmTpsBuzz = (15*1000);
 long rdmTpsMelodyRdm = (25*1000);
@@ -56,11 +56,13 @@ void setup() {
   playMelody(notes, duration, tempo, 1);
   delay(500);
 
-  for(int i = 1; i < 2; i++){
-    //playHorn2(random(3,6));
-    playHorn2(3);
-    delay(2000);
-  }
+playHornDoUp(random(1,8));
+
+//  for(int i = 1; i < 2; i++){
+//    //playHorn2(random(3,6));
+//    playHorn2(3);
+//    delay(2000);
+//  }
 }
 
 void loop() {
@@ -78,21 +80,21 @@ void loop() {
   
   if((millis() - tempsRdmLed) > rdmTpsLed){
       Serial.println("blinkLed");
-      rdmTpsLed = (random(1,7))*30*1000/rythm;
+      rdmTpsLed = random(1,7)*30*1000/rythm;
       tempsRdmLed = millis();
       blinkLed(random(1,5), random(1,5), random(2,20));
   }
 
   if((millis() - tempsRdmMotor) > rdmTpsMotor){
       Serial.println("turn");
-      rdmTpsMotor = ((random(1,6))*30*1000/rythm);
+      rdmTpsMotor = random(1,6)*30*1000/rythm;
       tempsRdmMotor = millis();
       turn(random(1,3), random(1,20));
   }
   
   if((millis() - tempsRdmHorn) > rdmTpsHorn){
-      Serial.println("playHorn");
-      rdmTpsHorn = (random(2,15)*45*1000)/rythm;
+      Serial.println("playHorn !!!!!!!!!!!!!!!!!");
+      rdmTpsHorn = random(1,13)*40*1000/rythm;
       tempsRdmHorn = millis();
       int rdmHorn = random(1,13);
       switch(rdmHorn){
@@ -130,17 +132,18 @@ void loop() {
 
   if((millis() - tempsRdmMelodyRdm) > rdmTpsMelodyRdm){ // RENOMMER 'FULLRANDOM'
       Serial.println("playRandomMelody");
-      rdmTpsMelodyRdm = (random(1,10)*25*1000)/rythm;
+      rdmTpsMelodyRdm = random(1,13)*30*1000/rythm;
       tempsRdmMelodyRdm = millis();
       playRandomMelody(4);
   }
 
   if((millis() - tempsRdmBuzz) > rdmTpsBuzz){
       Serial.println("playMelody");
-      rdmTpsBuzz = random(2,15)*50*1000/rythm;
+      rdmTpsBuzz = random(1,13)*30*1000/rythm;
       tempsRdmBuzz = millis();
       
       int rdm = random(30);
+      //int rdm = -1;
       int speaker = random(1,3);
       // RANDOM DURATION *1.1 .. 1.4
       if(rdm == 0){
