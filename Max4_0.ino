@@ -18,7 +18,7 @@ long tempsRdmHorn;
 long tempsRdmMelodyRdm;
 long tempsRdmMotor;
 long rdmTpsLed = (13*1000);
-long rdmTpsBuzz = (35*1000);
+long rdmTpsBuzz = (35*1000L);
 long rdmTpsMelodyRdm = (25*1000);
 long rdmTpsHorn = (30*1000);
 long rdmTpsMotor = (20*1000);
@@ -51,12 +51,15 @@ void setup() {
   playMelody(notes, duration, tempo, 1);
   delay(500);
 
-playHornDoUp(random(1,8));
+  playMelody(notes, duration, tempo, 2);
+
+ // playHornDoUp(random(1,8));
+  playHornDoUp(3);
 
   for(int i = 1; i < 2; i++){
     //playHorn2(random(3,6));
     //playHornOvni();
-    playHornSiren(1);
+    //playHornSiren(1);
     //playHornDoUp(1);
     delay(2000);
   }
