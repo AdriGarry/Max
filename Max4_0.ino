@@ -55,7 +55,9 @@ playHornDoUp(random(1,8));
 
   for(int i = 1; i < 2; i++){
     //playHorn2(random(3,6));
-    playHorn2(3);
+    //playHornOvni();
+    playHornSiren(1);
+    //playHornDoUp(1);
     delay(2000);
   }
 }
