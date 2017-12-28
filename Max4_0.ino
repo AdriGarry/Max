@@ -71,26 +71,17 @@ void setup() {
   //Serial.begin(115200);
 }
 
-/*void process(unsigned char inChar) {
-  switch (inChar) {
-    Serial.print(inChar);
-    case 48:
-      digitalWrite(LED_BUILTIN, LOW);
-      Serial.print("0");
-      break;
-    case 49:
-      digitalWrite(LED_BUILTIN, HIGH);
-      Serial.print("1");
-      break;
-    default:
-      Serial.print("error");
-  }
-}*/
-
 void loop() {
   //msg=Serial.read();
   msg=Serial.readStringUntil("..");
   Serial.println(msg);
+  if(msg=="break.."){
+    Serial.println("Taking a break...");
+    while(msg!="hi.."){
+      msg=Serial.readStringUntil("..");
+    }
+    Serial.println("Let's continue !");
+  }
 
 //  while (Serial.available()) {
 //     unsigned char inChar = (unsigned char)Serial.read();
