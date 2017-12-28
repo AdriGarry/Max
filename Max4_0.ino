@@ -10,6 +10,8 @@
 #include "motor.h"
 #include "potentiometre.h"
 
+String msg;
+
 long nbLoop = 0;
 long temps;
 long tempsRdmLed;
@@ -65,14 +67,42 @@ void setup() {
     //playHornDoUp(1);
     delay(2000);
   }
+
+  //Serial.begin(115200);
 }
 
+/*void process(unsigned char inChar) {
+  switch (inChar) {
+    Serial.print(inChar);
+    case 48:
+      digitalWrite(LED_BUILTIN, LOW);
+      Serial.print("0");
+      break;
+    case 49:
+      digitalWrite(LED_BUILTIN, HIGH);
+      Serial.print("1");
+      break;
+    default:
+      Serial.print("error");
+  }
+}*/
+
 void loop() {
+  //msg=Serial.read();
+  msg=Serial.readStringUntil("..");
+  Serial.println(msg);
+
+//  while (Serial.available()) {
+//     unsigned char inChar = (unsigned char)Serial.read();
+//     process(inChar);
+//  }
+
+
   nbLoop++;
   //Serial.println(nbLoop);
   
   rythm = getPotValue();
-  
+
   if((nbLoop % 20000) == 0){
       Serial.println(".");
   }
