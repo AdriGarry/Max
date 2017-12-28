@@ -65,7 +65,7 @@ void setup() {
     //playHornOvni();
     //playHornSiren(1);
     //playHornDoUp(1);
-    delay(2000);
+    //delay(2000);
   }
 
   //Serial.begin(115200);
