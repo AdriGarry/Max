@@ -20,10 +20,12 @@ long tempsRdmMotor;
 long rdmTpsLed = (13*1000);
 long rdmTpsBuzz = (35*1000L);
 long rdmTpsMelodyRdm = (25*1000);
-long rdmTpsHorn = (30*1000);
+//long rdmTpsHorn = (30*1000);
+long rdmTpsHorn = (300*1000);
 long rdmTpsMotor = (20*1000);
 
 void setup() {
+  Serial.println("Max setup");
   Serial.begin(9600);
   temps = millis();
   tempsRdmLed = millis();
@@ -71,13 +73,17 @@ void loop() {
   
   rythm = getPotValue();
   
+  if((nbLoop % 20000) == 0){
+      Serial.println(".");
+  }
+
   if((nbLoop % 50000) == 0){
       delay(1000);
       blinkLedInt(4, 25);
       delay(1000);
       nbLoop = 0;
   }
-  
+ 
   if((millis() - tempsRdmLed) > rdmTpsLed){
       Serial.println("blinkLed");
       rdmTpsLed = random(1,7)*30*1000/rythm;

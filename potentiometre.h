@@ -7,7 +7,7 @@ float getPotValue(){
   float rythm = sensorValue * (20.0 / 1023.0);
   if(rythm < 1) rythm = 1;
   else if(rythm > 18) rythm = 100;
-  Serial.println(rythm);
+  //Serial.println(rythm);
   return rythm;
 }
 
