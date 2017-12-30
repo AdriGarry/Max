@@ -59,15 +59,6 @@ void setup() {
 
  // playHornDoUp(random(1,8));
   playHornDoUp(3);
-
-  for(int i = 1; i < 2; i++){
-    //playHorn2(random(3,6));
-    //playHornOvni();
-    //playHornSiren(1);
-    //playHornDoUp(1);
-    //delay(2000);
-  }
-
   //Serial.begin(115200);
 }
 
@@ -83,11 +74,14 @@ void loop() {
     Serial.println("Let's continue !");
   }
 
-//  while (Serial.available()) {
-//     unsigned char inChar = (unsigned char)Serial.read();
-//     process(inChar);
-//  }
-
+  char *test = new char[msg.length()+1];
+  msg.toCharArray(test, msg.length()+1);
+  char *splitted = strtok(test, "-");
+  while (splitted != NULL)
+  {
+    Serial.println(splitted);
+    splitted = strtok (NULL, " ,.-");
+  }
 
   nbLoop++;
   //Serial.println(nbLoop);
