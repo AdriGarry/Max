@@ -67,7 +67,7 @@ void loop() {
   msg=Serial.readStringUntil("..");
   Serial.println(msg);
   if(msg=="break.."){
-    Serial.println("Taking a break...");
+    Serial.println("I'm Taking a break...");
     while(msg!="hi.."){
       msg=Serial.readStringUntil("..");
     }
