@@ -12,7 +12,7 @@
 
 String msg;
 
-/*long nbLoop = 0;
+long nbLoop = 0;
 long temps;
 long tempsRdmLed;
 long tempsRdmBuzz;
@@ -24,16 +24,16 @@ long rdmTpsBuzz = (35*1000L);
 long rdmTpsMelodyRdm = (25*1000);
 //long rdmTpsHorn = (30*1000);
 long rdmTpsHorn = (300*1000);
-long rdmTpsMotor = (20*1000);*/
+long rdmTpsMotor = (20*1000);
 
 void setup() {
-  Serial.begin(9600);   //Serial.begin(115200);
-  Serial.println("Max setup...");
-  /*temps = millis();
+  Serial.println("Max setup");
+  Serial.begin(9600);
+  temps = millis();
   tempsRdmLed = millis();
   tempsRdmBuzz = millis();
   tempsRdmMelodyRdm = millis();
-  tempsRdmHorn = millis();*/
+  tempsRdmHorn = millis();
   
   // Button
   pinMode(pinPot, INPUT);
@@ -59,7 +59,7 @@ void setup() {
 
  // playHornDoUp(random(1,8));
   playHornDoUp(3);
-  Serial.println("Max ready");
+  //Serial.begin(115200);
 }
 
 void loop() {
