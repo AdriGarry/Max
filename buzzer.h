@@ -8,6 +8,7 @@ const int horn = 5;
 const int buzzMaxon = A1;
 
 void playMelody(int melodyNotes[], int n, int melodyTempo[], int modeSpeaker){
+  Serial.println("playMelody()");
   int speaker = modeSpeaker;
   //int rdmTempo = 1.5;
   for(int i = 0; i < n; i++){
@@ -40,6 +41,7 @@ void playMelody(int melodyNotes[], int n, int melodyTempo[], int modeSpeaker){
 }
 
 void toneAll(int melodyNotes[], int n, int melodyTempo[]){
+  Serial.println("toneAll()");
   for(int i = 0; i < n; i++){
     digitalWrite(led,HIGH);
     
@@ -54,6 +56,7 @@ void toneAll(int melodyNotes[], int n, int melodyTempo[]){
 }
 
 void playHornWarning(){
+  Serial.println("playHornWarning()");
   digitalWrite(ledInt, HIGH);
   int freqTempo = 30;
   for(int i = freqTempo; i < 160; i++){
@@ -85,6 +88,7 @@ void playHornWarning(){
   digitalWrite(ledInt, LOW);
 }
 void playHorn(){
+  Serial.println("playHorn()");
   digitalWrite(ledInt, HIGH);
   int freqTempo = 600;
   for(int i = freqTempo; i < 2000; i++){
@@ -109,6 +113,7 @@ void playHorn(){
 }
 
 void playHorn2(int repeat){ //Sputnik
+  Serial.println("playHorn2()");
   for(repeat; repeat > 0; repeat--){
     digitalWrite(ledInt, HIGH);
     int freqTempo = 50;
@@ -128,6 +133,7 @@ void playHorn2(int repeat){ //Sputnik
 }
 
 void playHornBombing(int repeat){
+  Serial.println("playHornBombing()");
   digitalWrite(ledInt, HIGH);
   int freqTempo = 5000;
   for(int i = freqTempo; i > 3500; i--){
@@ -147,6 +153,7 @@ void playHornBombing(int repeat){
 }
 
 void playHornOvni(){
+  Serial.println("playHornOvni()");
   digitalWrite(ledInt, HIGH);
   int freqTempo = 1300;
   for(int i = freqTempo; i < 2500; i++){
@@ -169,6 +176,7 @@ void playHornOvni(){
 }
 
 void playHornWhistle(){
+  Serial.println("playHornWhistle()");
   digitalWrite(ledInt, HIGH);
   int freqTempo = 2200;
   for(int i = freqTempo; i < 2800; i++){
@@ -186,6 +194,7 @@ void playHornWhistle(){
 }
 
 void playHornSiren(int repeat){
+  Serial.println("playHornSiren()");
   for(repeat; repeat > 0; repeat--){
     digitalWrite(ledInt, HIGH);
     int freqTempo = 2000;
@@ -205,6 +214,7 @@ void playHornSiren(int repeat){
 }
 
 void playHornFire(int repeat){
+  Serial.println("playHornFire()");
   for(repeat; repeat > 0; repeat--){
     digitalWrite(ledInt, HIGH);
     int freqTempo = 800;
@@ -224,6 +234,7 @@ void playHornFire(int repeat){
 }
 
 void playHornDown(){
+  Serial.println("playHornDown()");
   digitalWrite(ledInt, HIGH);
   int freqTempo = 30;
   for(int i = freqTempo; i > 20; i--){
@@ -240,6 +251,7 @@ void playHornDown(){
 }
 
 void playHornOff(){
+  Serial.println("playHornOff()");
   digitalWrite(ledInt, HIGH);
   int freqTempo = 500;
   for(int i = 0; i < 3; i++){
@@ -257,6 +269,7 @@ void playHornOff(){
 }
 
 void playHornDoUp(int repeat){
+  Serial.println("playHornDoUp()");
   for(repeat; repeat > 0; repeat--){
     digitalWrite(ledInt, HIGH);
     int freqTempo = 300;
@@ -279,6 +292,7 @@ void playHornDoUp(int repeat){
 
 
 void playRandomMelody(int modeSpeaker){
+  Serial.println("playRandomMelody()");
   int speaker = modeSpeaker;
   int duration = random(1,13);
   for(duration; duration > 0; duration--){
