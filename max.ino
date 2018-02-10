@@ -9,8 +9,6 @@
 #include "functions.h"
 #include "serialParser.h"
 
-String msg;
-
 void setup() {
   Serial.begin(9600);   //Serial.begin(115200);
   Serial.println("Max initialization...");
@@ -34,6 +32,8 @@ void setup() {
   Serial.println("Max ready");
 }
 
+String msg;
+int cp = 0;
 void loop() {
 
   msg = Serial.readStringUntil("\n");
@@ -41,6 +41,12 @@ void loop() {
   msg.trim();
   if(msg.length() > 0){
     parseSerialToAction(msg); 
+  }
+
+  cp++;
+  if(cp%10000 == 0){
+    Serial.println("some random action from Max");
+    cp = 0;
   }
 
 }
