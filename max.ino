@@ -17,8 +17,8 @@ void setup() {
 
   pinMode(pinPot, INPUT); // Button
   pinMode(led, OUTPUT); // Led
-  pinMode(ledInt, OUTPUT); // Led
-  pinMode(ledMaxon, OUTPUT); // Led
+  pinMode(ledInt, OUTPUT); // Led Intérieure ?
+  pinMode(ledMaxon, OUTPUT); // Led Maxon
   pinMode(buzzer, OUTPUT); // Buzz
   pinMode(buzzMaxon, OUTPUT); // Buzz Maxon
   pinMode(motor, OUTPUT); // Motor
@@ -30,8 +30,7 @@ void setup() {
   delay(500);
   playMelody(notes, duration, tempo, 2);
 
-  // playHornDoUp(random(1,8));
-  playHornDoUp(1);//3
+  //playHornDoUp(2);//3
   Serial.println("Max ready");
 }
 

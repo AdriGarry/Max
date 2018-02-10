@@ -29,7 +29,7 @@ void parseSerialToAction(String data) {
   } else if(data == "playOneMelody"){
     feedback = playOneMelody();
   } else if(data == "playRdmHorn"){
-    playRdmHorn();
+    feedback = playRdmHorn();
   } else if(data == "playHornWarning"){
     playHornWarning();
   } else if(data == "playHornDoUp"){
