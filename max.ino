@@ -11,13 +11,13 @@
 
 String msg;
 
-String blink() {
+String blinkRdmLed() {
   blinkLed(random(1, 5), random(1, 5), random(2, 20));
-  return (".");
+  return ("blinkRdmLedEnd");
 }
 String turnNose() {
   turn(random(1, 3), random(1, 20));
-  return (".");
+  return ("turnNoseEnd");
 }
 String playRdmHorn() {
   int rdmHorn = random(1, 11);
@@ -52,13 +52,13 @@ String playRdmHorn() {
     default :
       playHornDown();
   }
-  return (".");
+  return ("playRdmHornEnd");
 }
 String playRdmMelody() {
-  playRandomMelody(4);
-  return (".");
+  playRandomMelody(4);// param is speaker output
+  return ("playRdmMelodyEnd");
 }
-String play1Melody() {
+String playOneMelody() {
   int rdm = random(30);
   //int rdm = -1;
   int speaker = random(1, 3);
@@ -231,17 +231,12 @@ String play1Melody() {
     int duration = sizeof(notes) / sizeof(int);
     playMelody(notes, duration, tempo, speaker);
   }
-  return (".");
+  return ("playOneMelodyEnd");
 }
 
 void setup() {
   Serial.begin(9600);   //Serial.begin(115200);
   Serial.println("Max setup...");
-  /*temps = millis();
-    tempsRdmLed = millis();
-    tempsRdmBuzz = millis();
-    tempsRdmMelodyRdm = millis();
-    tempsRdmHorn = millis();*/
 
   // Button
   pinMode(pinPot, INPUT);
@@ -270,26 +265,49 @@ void setup() {
   Serial.println("Max ready");
 }
 
+void parseSerialToAction(String data) {
+  //Serial.println(data);
+  String feedback;
+  if(data == "blinkLed"){
+    //blinkLed(int ledTo, int repeat, int tempo);
+    Serial.println("blinkLed TO IMPLEMENT !");
+    feedback = "blinkLedEnd";
+  } else if(data == "blinkLedInt"){
+    //blinkLedInt(int repeat, int tempo);
+    Serial.println("blinkLedInt TO IMPLEMENT !");
+    feedback = "blinkLedIntEnd";
+  } else if(data == "blinkAllLed"){
+    //blinkAllLed(int repeat, int tempo)
+    Serial.println("blinkAllLed TO IMPLEMENT !");
+    feedback = "blinkAllLedEnd";
+  } else if(data == "blinkRdmLed"){
+    feedback = blinkRdmLed();
+  } else if(data == "playOneMelody"){
+    feedback = playOneMelody();
+  } else if(data == "playRdmHorn"){
+    feedback = playRdmHorn();
+  }else{
+    feedback = "no_action";
+  }
+  Serial.println(feedback);
+}
+
 void loop() {
   //msg=Serial.read();
-  msg = Serial.readStringUntil("..");
-  Serial.println(msg);
-  if (msg == "break..") {
-    Serial.println("I'm Taking a break...");
-    while (msg != "hi..") {
-      msg = Serial.readStringUntil("..");
-    }
-    Serial.println("Let's continue !");
+  msg = Serial.readStringUntil("\n");
+  //Serial.println(":" + msg);
+  msg.trim();
+  if(msg.length() > 0){
+    parseSerialToAction(msg); 
   }
-
-  char *test = new char[msg.length() + 1];
+  /*char *test = new char[msg.length() + 1];
   msg.toCharArray(test, msg.length() + 1);
   char *splitted = strtok(test, "-");
   while (splitted != NULL)
   {
     Serial.println(splitted);
     splitted = strtok (NULL, " ,.-");
-  }
+  }*/
 
 }
 
