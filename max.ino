@@ -44,7 +44,7 @@ void loop() {
   }
 
   cp++;
-  if(cp%10000 == 0){
+  if(cp%1000 == 0){
     Serial.println("some random action from Max");
     cp = 0;
   }
