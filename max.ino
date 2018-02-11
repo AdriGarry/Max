@@ -25,8 +25,8 @@ void setup() {
   int tempo[] = {100};
   int duration = sizeof(notes) / sizeof(int);
   playMelody(notes, duration, tempo, 1);
-  delay(500);
-  playMelody(notes, duration, tempo, 2);
+  //delay(500);
+  //playMelody(notes, duration, tempo, 2);
 
   //playHornDoUp(2);//3
   Serial.println("Max ready");
