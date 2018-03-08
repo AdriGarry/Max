@@ -22,6 +22,7 @@ void parseSerialToAction(String data) {
     feedback = "blinkLedIntEnd";
   } else if(data == "blinkAllLed"){
     //blinkAllLed(int repeat, int tempo)
+    blinkAllLed(4, 20);
     Serial.println("blinkAllLed TO IMPLEMENT !");
     feedback = "blinkAllLedEnd";
   } else if(data == "blinkRdmLed"){
@@ -51,6 +52,8 @@ void parseSerialToAction(String data) {
     playHornSiren(random(3, 7));
   } else if(data == "playHornDown"){
     playHornDown();
+  } else if(data == "turnNose"){
+    turnNose();
   }else{
     feedback = "no_action";
   }
