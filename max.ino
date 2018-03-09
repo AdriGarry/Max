@@ -6,10 +6,8 @@
 #include "buzzer.h"
 #include "motor.h"
 #include "potentiometre.h"
-#include "functions.h"
+#include "api.h"
 #include "serialParser.h"
-
-String msg;
 
 void setup() {
   Serial.begin(9600);   //Serial.begin(115200);
@@ -27,13 +25,15 @@ void setup() {
   int tempo[] = {100};
   int duration = sizeof(notes) / sizeof(int);
   playMelody(notes, duration, tempo, 1);
-  delay(500);
-  playMelody(notes, duration, tempo, 2);
+  //delay(500);
+  //playMelody(notes, duration, tempo, 2);
 
   //playHornDoUp(2);//3
   Serial.println("Max ready");
 }
 
+String msg;
+int cp = 0;
 void loop() {
 
   msg = Serial.readStringUntil("\n");
@@ -42,6 +42,13 @@ void loop() {
   if(msg.length() > 0){
     parseSerialToAction(msg); 
   }
+
+  // cp++;
+  // if(cp%2000 == 0){
+  //   Serial.println("some random action from Max");
+  //   cp = 0;
+  // }
+
 
 }
 

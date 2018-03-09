@@ -2,11 +2,11 @@
 
 String blinkRdmLed() {
   blinkLed(random(1, 5), random(1, 5), random(2, 20));
-  return ("blinkRdmLedEnd");
+  //return ("blinkRdmLed_end");
 }
 String turnNose() {
   turn(random(1, 3), random(1, 20));
-  return ("turnNoseEnd");
+  //return ("turn_end");
 }
 String playRdmHorn() {
   int rdmHorn = random(1, 11);
@@ -41,11 +41,11 @@ String playRdmHorn() {
     default :
       playHornDown();
   }
-  return ("playRdmHornEnd");
+  //return ("playRdmHorn_end");
 }
 String playRdmMelody() {
   playRandomMelody(4);// param is speaker output
-  return ("playRdmMelodyEnd");
+  //return ("playRdmMelody_end");
 }
 String playOneMelody() {
   int rdm = random(30);
@@ -220,6 +220,6 @@ String playOneMelody() {
     int duration = sizeof(notes) / sizeof(int);
     playMelody(notes, duration, tempo, speaker);
   }
-  return ("playOneMelodyEnd");
+  //return ("playOneMelody_end");
 }
 
