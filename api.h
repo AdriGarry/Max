@@ -5,7 +5,7 @@ String blinkRdmLed() {
   //return ("blinkRdmLed_end");
 }
 String turnNose() {
-  turn(random(1, 3), random(1, 20));
+  turn(random(3, 5), random(5, 20));
   //return ("turn_end");
 }
 String playRdmHorn() {

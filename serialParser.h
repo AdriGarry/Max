@@ -26,11 +26,17 @@ void parseSerialToAction(String data) {
     Serial.println("blinkAllLed TO IMPLEMENT !");
     feedback = "blinkAllLed_end";
   } else if(data == "blinkRdmLed"){
-    feedback = blinkRdmLed();
+    blinkRdmLed();
+    feedback = "blinkRdmLed_end";
   } else if(data == "playOneMelody"){
-    feedback = playOneMelody();
+    playOneMelody();
+    feedback = "playOneMelody_end";
   } else if(data == "playRdmHorn"){
-    feedback = playRdmHorn();
+    playRdmHorn();
+    feedback = "playRdmHorn_end";
+  } else if(data == "playRdmMelody"){
+    playRdmMelody();
+    feedback = "playRdmMelody_end";
   } else if(data == "playHornWarning"){
     playHornWarning();
   } else if(data == "playHornDoUp"){
@@ -54,6 +60,7 @@ void parseSerialToAction(String data) {
     playHornDown();
   } else if(data == "turnNose"){
     turnNose();
+    feedback = "turn_end";
   }else{
     feedback = "no_action: " + data;
   }
@@ -62,10 +69,5 @@ void parseSerialToAction(String data) {
   }
   Serial.println(feedback);
 }
-playOneMelody_end
-blinkRdmLed_end
-turn_end
-playRdmHorn_end
-playRdmMelody_end
 
 
