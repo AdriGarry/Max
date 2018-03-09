@@ -6,7 +6,7 @@
 #include "buzzer.h"
 #include "motor.h"
 #include "potentiometre.h"
-#include "functions.h"
+#include "api.h"
 #include "serialParser.h"
 
 void setup() {
@@ -43,11 +43,12 @@ void loop() {
     parseSerialToAction(msg); 
   }
 
-  cp++;
-  if(cp%2000 == 0){
-    Serial.println("some random action from Max");
-    cp = 0;
-  }
+  // cp++;
+  // if(cp%2000 == 0){
+  //   Serial.println("some random action from Max");
+  //   cp = 0;
+  // }
+
 
 }
 
