@@ -31,12 +31,12 @@ void parseSerialToAction(String data) {
   } else if(data == "playOneMelody"){
     playOneMelody();
     feedback = "playOneMelody_end";
-  } else if(data == "playRdmHorn"){
-    playRdmHorn();
-    feedback = "playRdmHorn_end";
   } else if(data == "playRdmMelody"){
     playRdmMelody();
     feedback = "playRdmMelody_end";
+  } else if(data == "playRdmHorn"){
+    playRdmHorn();
+    feedback = "playRdmHorn_end";
   } else if(data == "playHornWarning"){
     playHornWarning();
   } else if(data == "playHornDoUp"){
