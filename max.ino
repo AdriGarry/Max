@@ -21,12 +21,10 @@ void setup() {
   pinMode(buzzMaxon, OUTPUT); // Buzz Maxon
   pinMode(motor, OUTPUT); // Motor
 
-  int notes[] = {NOTE_D3};
-  int tempo[] = {100};
-  int duration = sizeof(notes) / sizeof(int);
-  playMelody(notes, duration, tempo, 1);
-  //delay(500);
-  //playMelody(notes, duration, tempo, 2);
+  //int notes[] = {NOTE_D3};
+  //int tempo[] = {100};
+  //int duration = sizeof(notes) / sizeof(int);
+  //playMelody(notes, duration, tempo, 1);
 
   //playHornDoUp(2);//3
   Serial.println("Max ready");
