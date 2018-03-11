@@ -13,9 +13,7 @@ void parseSerialToAction(String data) {
 
   String feedback;
   feedback = "";
-  if(data == "hi"){
-    hi();
-  } else if(data == "blinkLed"){
+  if(data == "blinkLed"){
     //blinkLed(int ledTo, int repeat, int tempo);
     Serial.println("blinkLed TO IMPLEMENT !");
     //feedback = "blinkLed_nd";

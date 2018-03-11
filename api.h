@@ -1,12 +1,5 @@
 // Functions
 
-void hi(){
-  int notes[] = {NOTE_D3};
-  int tempo[] = {100};
-  int duration = sizeof(notes) / sizeof(int);
-  playMelody(notes, duration, tempo, 1);
-}
-
 String blinkRdmLed() {
   blinkLed(random(1, 5), random(1, 5), random(2, 20));
   //return ("blinkRdmLed_end");
@@ -22,7 +15,7 @@ String playRdmHorn() {
       playHornWarning();
       break;
     case 2 :
-      playHornDoUp(random(1, 8));
+      playHornDoUp(random(3, 8));
       break;
     case 3 :
       playHorn();

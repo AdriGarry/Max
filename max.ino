@@ -21,12 +21,13 @@ void setup() {
   pinMode(buzzMaxon, OUTPUT); // Buzz Maxon
   pinMode(motor, OUTPUT); // Motor
 
-  //int notes[] = {NOTE_D3};
-  //int tempo[] = {100};
-  //int duration = sizeof(notes) / sizeof(int);
-  //playMelody(notes, duration, tempo, 1);
+  int notes[] = {NOTE_D3};
+  int tempo[] = {80};
+  int duration = sizeof(notes) / sizeof(int);
+  playMelody(notes, duration, tempo, 1);
 
-  //playHornDoUp(2);//3
+  //playHornDoUp(1);
+  //playHornDoUp(5);//3
   Serial.println("Max ready");
 }
 
@@ -39,6 +40,7 @@ void loop() {
   msg.trim();
   if(msg.length() > 0){
     parseSerialToAction(msg); 
+    //msg = "";
   }
 
   // cp++;
