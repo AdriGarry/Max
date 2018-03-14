@@ -10,7 +10,7 @@
 #include "serialParser.h"
 
 long tempsAction;
-long rdmTpsAction = 1200000L; // 2min
+long rdmTpsAction = 900000L; // 900000 => 15min
 
 void setup() {
   Serial.begin(115200);
@@ -32,8 +32,6 @@ void setup() {
   //playHornDoUp(1);
   //playHornDoUp(5);//3
   Serial.println("Max ready");
-  Serial.println(rdmTpsAction);
-
 }
 
 void loop() {
