@@ -9,8 +9,11 @@
 #include "api.h"
 #include "serialParser.h"
 
+long tempsAction;
+long rdmTpsAction = 1200000L; // 2min
+
 void setup() {
-  Serial.begin(115200);   //Serial.begin(115200);
+  Serial.begin(115200);
   Serial.println("Max initialization...");
 
   pinMode(pinPot, INPUT); // Button
@@ -29,27 +32,28 @@ void setup() {
   //playHornDoUp(1);
   //playHornDoUp(5);//3
   Serial.println("Max ready");
+  Serial.println(rdmTpsAction);
+
 }
 
-String msg;
-int cp = 0;
 void loop() {
 
-  msg = Serial.readStringUntil("\n");
-  //Serial.println("." + msg);
-  msg.trim();
-  if(msg.length() > 0){
-    parseSerialToAction(msg); 
-    //msg = "";
+  String msg;
+  if(Serial.available() > 0){
+    msg = Serial.readStringUntil("\n");
+    //Serial.println("." + msg);
+    msg.trim();
+    if(msg.length() > 0){
+      parseSerialToAction(msg); 
+    }
   }
 
-  // cp++;
-  // if(cp%2000 == 0){
-  //   Serial.println("some random action from Max");
-  //   cp = 0;
-  // }
-
-
+  if((millis() - tempsAction) > rdmTpsAction){
+    //Serial.println(millis());
+    Serial.println("some random action from Max");
+    tempsAction = millis();
+  }
+  
 }
 
 
