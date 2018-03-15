@@ -16,33 +16,23 @@ void parseSerialToAction(String data) {
   if(data == "blinkLed"){
     //blinkLed(int ledTo, int repeat, int tempo);
     Serial.println("blinkLed TO IMPLEMENT !");
-    //feedback = "blinkLed_nd";
   } else if(data == "blinkLedInt"){
-    //blinkLedInt(int repeat, int tempo);
     Serial.println("blinkLedInt TO IMPLEMENT !");
-    //feedback = "blinkLedInt_end";
   } else if(data == "blinkAllLed"){
-    //blinkAllLed(int repeat, int tempo)
-    blinkAllLed(3, 15);
+    blinkAllLed(3, 10);
     Serial.println("blinkAllLed TO IMPLEMENT !");
-    //feedback = "blinkAllLed_end";
   } else if(data == "blinkRdmLed"){
     blinkRdmLed();
-    //feedback = "blinkRdmLed_end";
   } else if(data == "playOneMelody"){
     playOneMelody();
-    //feedback = "playOneMelody_end";
   } else if(data == "playRdmMelody"){
     playRdmMelody();
-    //feedback = "playRdmMelody_end";
   } else if(data == "playRdmHorn"){
     playRdmHorn();
-    //feedback = "playRdmHorn_end";
   } else if(data == "playHornWarning"){
     playHornWarning();
   } else if(data == "playHornDoUp"){
     playHornDoUp(random(1, 8));
-    //feedback = "playHornDoUp_end";
   } else if(data == "playHorn"){
     playHorn();
   } else if(data == "playHornOff"){
@@ -61,7 +51,6 @@ void parseSerialToAction(String data) {
     playHornDown();
   } else if(data == "turnNose"){
     turnNose();
-    //feedback = "turn_end";
   }else{
     feedback = "no_action: ";
   }

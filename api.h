@@ -1,12 +1,10 @@
 // Functions
 
 String blinkRdmLed() {
-  blinkLed(random(1, 5), random(1, 5), random(2, 20));
-  //return ("blinkRdmLed_end");
+  blinkLed(led, random(1, 5), random(1, 13));
 }
 String turnNose() {
   turn(random(3, 5), random(5, 20));
-  //return ("turn_end");
 }
 String playRdmHorn() {
   int rdmHorn = random(1, 11);
@@ -41,11 +39,9 @@ String playRdmHorn() {
     default :
       playHornDown();
   }
-  //return ("playRdmHorn_end");
 }
 String playRdmMelody() {
   playRandomMelody(4);// param is speaker output
-  //return ("playRdmMelody_end");
 }
 String playOneMelody() {
   int rdm = random(30);
@@ -220,6 +216,5 @@ String playOneMelody() {
     int duration = sizeof(notes) / sizeof(int);
     playMelody(notes, duration, tempo, speaker);
   }
-  //return ("playOneMelody_end");
 }
 
