@@ -25,7 +25,7 @@ void setup() {
   pinMode(motor, OUTPUT); // Motor
 
   int notes[] = {NOTE_D3};
-  int tempo[] = {80};
+  int tempo[] = {30};
   int duration = sizeof(notes) / sizeof(int);
   playMelody(notes, duration, tempo, 1);
 
