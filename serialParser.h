@@ -19,7 +19,7 @@ void parseSerialToAction(String data) {
   } else if(data == "blinkLedInt"){
     Serial.println("blinkLedInt TO IMPLEMENT !");
   } else if(data == "blinkAllLed"){
-    blinkAllLed(3, 10);
+    blinkAllLed(5, 10);
     Serial.println("blinkAllLed TO IMPLEMENT !");
   } else if(data == "blinkRdmLed"){
     blinkRdmLed();
