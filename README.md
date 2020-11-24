@@ -1,4 +1,4 @@
 # max
-Hi there !
+Hi there!
 
 This is an experimental project!
