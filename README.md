@@ -10,6 +10,4 @@
 [![Commit](https://img.shields.io/github/commit-activity/w/adrigarry/max)](https://github.com/AdriGarry/max/commits/master)
 [![Last commit](https://img.shields.io/github/last-commit/adrigarry/max)](https://github.com/AdriGarry/max/commits/master)
 
-Hi there!
-
-This is an experimental project!
+This project is for an arduino, to buzz and blink leds.
